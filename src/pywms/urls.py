@@ -27,6 +27,7 @@ urlpatterns = patterns('',
     #url(r'^do/', 'wms.views.fvDo'),
     url(r'^doc', 'wms.views.documentation'),
     url(r'^wms/(?P<dataset>.*)/', 'wms.views.wms'),
+    url(r'^geotiff/(?P<dataset>.*)/', 'geotiff.views.wms'),
 
     url(r'^wmstest/openlayers/(?P<filepath>.*)', 'wms.views.openlayers'),
     url(r'^wmstest/', 'wms.views.wmstest'),
@@ -36,6 +37,7 @@ urlpatterns = patterns('',
     url(r'^static/(?P<filepath>.*)', 'wms.views.static'),
     url(r'^crossdomain.xml', 'wms.views.crossdomain'),
 
+    url(r'^datasets', 'wms.views.datasets'),
     url(r'^update', 'wms.views.update'),
     url(r'^add_dataset', 'wms.views.add'), # This is a POST based view
     url(r'^add_to_group', 'wms.views.add_to_group'),

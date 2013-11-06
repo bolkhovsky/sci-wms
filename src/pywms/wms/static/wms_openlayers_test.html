@@ -52,19 +52,35 @@
 				                                },
 				                                
 				                                {
-				                                    singleTile: true
-				                                    , 
+				                                    singleTile: true,
 				                                    ratio: 1,
 				                                    isBaseLayer: false,
 				                                    visibility: false
-				                                   
 				                                }
 				                                );
 				map.addLayer({{dataset.name}});
 				{% endfor %}
 
+                map.addLayer(new OpenLayers.Layer.WMS(
+                        "GeoTIFF",
+                        "http://localhost:7000/geotiff/test/",
+                        {
+                            layers:"",
+                            transparent: true,
+                            styles: "",
+                            time: "",
+                            elevation: "0"
+                        },
+                        {
+                            singleTile: true,
+                            ratio: 1,
+                            isBaseLayer: false,
+                            visibility: true
+                        }
+                ));
+
 				map.setCenter(
-					new OpenLayers.LonLat(-72, 41).transform(
+					new OpenLayers.LonLat(30, 60).transform(
 						new OpenLayers.Projection("EPSG:4326"),
 						map.getProjectionObject()
 					), 8
